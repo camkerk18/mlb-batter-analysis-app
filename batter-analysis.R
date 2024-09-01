@@ -1,12 +1,3 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    https://shiny.posit.co/
-#
-
 library(shiny)
 library(tidyverse)
 library(Lahman)
@@ -16,7 +7,7 @@ library(ggplot2)
 batting = as_tibble(Batting)
 people = as_tibble(People)
 
-### DATA WRANGLING SECTION
+### DATA WRANGLING
 
 bat_stats = batting %>%
   mutate_all(~ifelse(is.na(.), 0, .)) %>%
@@ -47,13 +38,11 @@ batting_table = batting_merged %>%
   rename(Name = name) %>%
   rename(Year = year)
 
-# Define UI for application that draws a histogram
+# APP
 ui = fluidPage(
   
-  # Application title
   titlePanel("Batter Statistics Post-Steroid Era (2005-2022)"),
   
-  # Sidebar with a slider input for number of bins 
   tabsetPanel(
     tabPanel("Graph",
       sidebarLayout(
@@ -95,7 +84,6 @@ ui = fluidPage(
       
     ),
     
-    # Show a plot of the generated distribution
     mainPanel(
       plotOutput("bat_stat_plot"),
       dataTableOutput("table")
@@ -114,7 +102,6 @@ ui = fluidPage(
            ))
   ))
 
-# Define server logic required to draw a histogram
 server = function(input, output) {
   batters = reactive({
     batting_merged %>%

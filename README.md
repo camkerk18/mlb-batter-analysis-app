@@ -1,7 +1,8 @@
 # Project Description 
 
 Created: Nov 2022 - Dec 2022
-Updated: April 2024
+
+(Updated: April 2024)
 
 The game of baseball has many different statistics that are used to analyze player performance. This application takes the core batting statistics taken over an MLB player's career to analyze a player's performance throughout their career. Through graphical representation, trends can be recognized to see player improvement, regression, and sometimes injury. And a table is used to show each player's career batting performance across all statistics broken down by year.
 
